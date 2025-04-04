@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #1b2530;
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #34495e;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            min-height: 100vh;
+            padding-top: 6rem;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        /* About Section */
+        #about {
+            background-color: #ecf0f1;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            flex: 1;
+            padding: 1rem;
+        }
+
+        .profile-img {
+            flex: 1;
+            text-align: center;
+        }
+
+        .profile-img img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #2c3e50;
+        }
+
+        /* Education Section */
+        #education {
+            background-color: #fff;
+        }
+
+        .education-item {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            padding: 1.5rem;
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Interests Section */
+        #interests {
+            background-color: #ecf0f1;
+        }
+
+        .interests-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .interest-item {
+            background-color: #fff;
+            margin: 1rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: calc(33% - 2rem);
+            text-align: center;
+        }
+
+        /* Projects Section */
+        #projects {
+            background-color: #fff;
+        }
+
+        .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background-color: #ecf0f1;
+            margin: 1rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: calc(50% - 2rem);
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #ecf0f1;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+        }
+
+        button {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #34495e;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .interest-item,
+            .project-card {
+                width: 100%;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#interests">Interests</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <P>Hello I am Alfonce Mweu a second year undergraduate student pursuing a bachelors degree of science in 
+                </P> science at the University of Embu.</P>
+                <P>I am a passionate software developer with a keen interest in web development, artificial intelligence,
+                </P> and data science.</P>
+                <p>I am nineteen years old and from Kenya.</P>
+            <div class="profile-img">
+                <img src="C:\Users\Admin\OneDrive\Desktop\HTML files\alfonce.jpg" alt="Profile Picture">
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education Background</h2>
+        <div class="education-item">
+            <h3>Makueni boys high school</h3>
+                <p><strong>KSCE Certificate</strong></p>
+                <p><strong>Year:</strong> 2018 - 2022</p>
+                <p><strong>Description:</strong>Graduated with a grade of B+</p>
+        </div>
+    </section>
+
+    <!-- Interests Section -->
+    <section id="interests">
+        <h2>My Interests</h2>
+        <div class="interests-container">
+            <div class="interest-item">
+                <h3>Web Development</h3>
+                <p>Building responsive and user-friendly websites using modern technologies like HTML5, CSS3, and JavaScript frameworks.</p>
+            </div>
+            <div class="interest-item">
+                <h3>Artificial Intelligence</h3>
+                <p>Exploring machine learning algorithms and their applications in solving real-world problems.</p>
+            </div>
+            <div class="interest-item">
+                <h3>Data Science</h3>
+                    <p>Analyzing and interpreting complex data to extract meaningful insights and support decision-making.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects Completed</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <h3>E-commerce Website</h3>
+                <p><strong>Technologies:</strong> React, Node.js, MongoDB</p>
+                <p>A full-stack e-commerce platform with user authentication, product catalog, and payment integration.</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Weather App</h3>
+                <p><strong>Technologies:</strong> JavaScript, API Integration</p>
+                <p>A responsive weather application that displays current weather and forecasts using a weather API.</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Task Management System</h3>
+                <p><strong>Technologies:</strong> Python, Django, PostgreSQL</p>
+                <p>A collaborative task management tool with team features, deadlines, and progress tracking.</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Portfolio Website</h3>
+                <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+                <p>A personal portfolio website showcasing projects, skills, and contact information.</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form class="contact-form" id="contactForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 My Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the form data to a server
+            // For this example, we'll just log it and show an alert
+            console.log({ name, email, subject, message });
+            alert('Thank you for your message! I will get back to you soon.');
+            
+            // Reset the form
+            this.reset();
+        });
+    </script>
+</body>
+</html>

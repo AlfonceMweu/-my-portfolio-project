@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#interests">Interests</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <div class="content">
+                <img src="C:\Users\Admin\OneDrive\Desktop\HTML files\alfonce.jpg" alt="Profile Picture" class="profile-img">
+                <div class="about-content">
+                    <div id="about-display"></div>
+                    <div class="edit-section">
+                        <textarea id="about-text" rows="5" placeholder="Write something about yourself..."></textarea>
+                        <button onclick="saveAbout()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="section">
+            <h2>Education Background</h2>
+            <div class="content">
+                <div id="education-display"></div>
+                <div class="edit-section">
+                    <form id="education-form">
+                        <input type="text" id="institution" placeholder="Institution Name" required>
+                        <input type="text" id="degree" placeholder="Degree/Certificate" required>
+                        <input type="text" id="year" placeholder="Year" required>
+                        <textarea id="description" placeholder="Description"></textarea>
+                        <button type="button" onclick="saveEducation()">Add Education</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="interests" class="section">
+            <h2>My Interests</h2>
+            <div class="content">
+                <div id="interests-display"></div>
+                <div class="edit-section">
+                    <textarea id="interests-text" rows="5" placeholder="List your interests..."></textarea>
+                    <button onclick="saveInterests()">Save</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <h2>My Projects</h2>
+            <div class="content">
+                <div id="projects-display"></div>
+                <div class="edit-section">
+                    <form id="project-form">
+                        <input type="text" id="project-title" placeholder="Project Title" required>
+                        <input type="text" id="project-tech" placeholder="Technologies Used" required>
+                        <textarea id="project-desc" placeholder="Project Description" required></textarea>
+                        <input type="text" id="project-link" placeholder="Project Link (optional)">
+                        <button type="button" onclick="saveProject()">Add Project</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2>Contact Me</h2>
+            <div class="content">
+                <form id="contact-form">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                    <input type="text" id="subject" placeholder="Subject" required>
+                    <textarea id="message" placeholder="Your Message" required></textarea>
+                    <button type="button" onclick="submitContact()">Send Message</button>
+                </form>
+                <div id="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-envelope"></i> your.email@example.com</p>
+                    <p><i class="fas fa-phone"></i> +123 456 7890</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Your City, Country</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> My Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
